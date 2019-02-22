@@ -5,6 +5,9 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Lab01.Managers;
+using Lab01.Models;
+using Lab01.Windows;
 
 namespace Lab01
 {
@@ -13,5 +16,14 @@ namespace Lab01
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            MainWindow mainWindow = new MainWindow();
+            NavigationModel navigationModel = new NavigationModel(mainWindow);
+            NavigationManager.Instance.Initialize(navigationModel);
+            mainWindow.Show();
+            navigationModel.Navigate(ModesEnum.Start);
+        }
     }
 }
