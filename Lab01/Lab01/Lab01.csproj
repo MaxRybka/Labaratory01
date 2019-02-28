@@ -59,8 +59,13 @@
     </ApplicationDefinition>
     <Compile Include="Managers\NavigationManager.cs" />
     <Compile Include="Models\NavigationModel.cs" />
-    <Compile Include="Models\Result.cs" />
-    <Compile Include="Models\Start.cs" />
+    <Compile Include="Models\ResultModel.cs" />
+    <Compile Include="Models\StartModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Tools\ObservableItem.cs" />
+    <Compile Include="Tools\RelayCommand.cs" />
+    <Compile Include="ViewModels\ResultViewModel.cs" />
+    <Compile Include="ViewModels\StartViewModel.cs" />
     <Compile Include="Views\StartView.xaml.cs">
       <DependentUpon>StartView.xaml</DependentUpon>
     </Compile>
@@ -68,10 +73,17 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\ResultView.xaml.cs">
+      <DependentUpon>ResultView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\StartView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ResultView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -108,7 +120,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UserControls\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

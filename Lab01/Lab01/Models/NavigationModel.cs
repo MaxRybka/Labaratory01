@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Lab01.Views;
 using Lab01.Windows;
 
@@ -19,13 +15,14 @@ namespace Lab01.Models
     {
         private MainWindow _mainWindow;
         private StartView _startView;
-        //private Result _resultView;
+        private ResultView _resultView;
 
 
-        public NavigationModel(MainWindow mainWindow)
+        public NavigationModel(MainWindow mainWindow , UserModel user)
         {
             _mainWindow = mainWindow;
-            _startView = new StartView();
+            _startView = new StartView(user);
+            _resultView = new ResultView(user);
         }
 
         public void Navigate(ModesEnum mode)
@@ -35,12 +32,17 @@ namespace Lab01.Models
                 case ModesEnum.Start:
                     _mainWindow.ContentControl.Content = _startView;
                     break;
-                //case ModesEnum.Result:
-                //    _mainWindow.ContentControl.Content = _resultView;
-                //    break;
+                case ModesEnum.Result:
+                    _mainWindow.ContentControl.Content = _resultView;
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(mode), mode, null);
             }
+        }
+
+        public void LoadResult(UserModel user)
+        {
+            _resultView = new ResultView(user);
         }
     }
 }

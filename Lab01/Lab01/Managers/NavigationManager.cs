@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Lab01.Models;
+﻿using Lab01.Models;
 
 namespace Lab01.Managers
 {
@@ -38,6 +33,11 @@ namespace Lab01.Managers
         public void Navigate(ModesEnum mode)
         {
             _navigationModel?.Navigate(mode);
+        }
+
+        public void LoadResult(UserModel user)
+        {
+            _navigationModel?.LoadResult(user);
         }
     }
 }

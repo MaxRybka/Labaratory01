@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Lab01.Models;
+using Lab01.ViewModels;
+
 
 namespace Lab01.Views
 {
@@ -20,9 +11,13 @@ namespace Lab01.Views
     /// </summary>
     public partial class StartView : UserControl
     {
-        public StartView()
+        private StartViewModel _startViewModel;
+
+        public StartView(UserModel user)
         {
             InitializeComponent();
+            _startViewModel = new StartViewModel(user);
+            DataContext = _startViewModel;
         }
     }
 }

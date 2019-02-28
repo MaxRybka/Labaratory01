@@ -20,7 +20,8 @@ namespace Lab01
         {
             base.OnStartup(e);
             MainWindow mainWindow = new MainWindow();
-            NavigationModel navigationModel = new NavigationModel(mainWindow);
+            UserModel user = new UserModel();
+            NavigationModel navigationModel = new NavigationModel(mainWindow , user);
             NavigationManager.Instance.Initialize(navigationModel);
             mainWindow.Show();
             navigationModel.Navigate(ModesEnum.Start);
